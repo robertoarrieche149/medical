@@ -1,0 +1,140 @@
+/* =============================================
+   LOGIN PAGE
+   ============================================= */
+
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--surface-container-lowest);
+  position: relative;
+  overflow: hidden;
+  padding: 1rem;
+}
+
+/* Fondo */
+.login-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.login-bg-glow {
+  position: absolute;
+  top: -30%;
+  left: -10%;
+  width: 70%;
+  height: 80%;
+  background: radial-gradient(ellipse, rgba(71, 241, 228, 0.06) 0%, transparent 65%);
+}
+
+.login-bg-watermark {
+  position: absolute;
+  right: -5%;
+  bottom: -10%;
+  color: rgba(71, 241, 228, 0.03);
+  transform: rotate(-15deg);
+}
+
+/* Card */
+.login-card {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 420px;
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+/* Header */
+.login-header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.login-logo {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-lg);
+  background: var(--gradient-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--on-primary);
+  margin-bottom: 0.25rem;
+  box-shadow: 0 8px 24px rgba(71, 241, 228, 0.25);
+}
+
+.login-title {
+  font-size: 1.75rem;
+  font-weight: 800;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.login-subtitle {
+  font-size: 0.8125rem;
+  color: var(--on-surface-variant);
+  margin: 0;
+}
+
+/* Formulario */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.125rem;
+}
+
+.input-icon-wrap {
+  position: relative;
+}
+
+.input-icon {
+  position: absolute;
+  left: 0.875rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--outline);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.login-input {
+  padding-left: 2.5rem !important;
+}
+
+/* Footer */
+.login-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 0.25rem;
+}
+
+.login-forgot {
+  font-size: 0.8125rem;
+  color: var(--primary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.login-forgot:hover {
+  color: var(--primary-fixed);
+}
+
+/* Spinner inline */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.spin {
+  animation: spin 0.7s linear infinite;
+}

@@ -1,0 +1,32 @@
+.reportes-page {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* KPIs en grid */
+.reportes-kpis {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+.reporte-kpi {
+  min-height: 90px;
+}
+
+/* Gráficos fila 1 */
+.reportes-charts-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1rem;
+}
+
+.reportes-chart-big {
+  min-height: 300px;
+}
+
+@media (max-width: 960px) {
+  .reportes-charts-row { grid-template-columns: 1fr; }
+  .reportes-kpis { grid-template-columns: repeat(2, 1fr); }
+}

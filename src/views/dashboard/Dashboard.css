@@ -1,0 +1,34 @@
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+/* KPIs */
+.dashboard-kpis {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.kpi-primary .kpi-value { background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.kpi-success .kpi-value { background: linear-gradient(135deg, #47f1e4, #24ddd1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.kpi-danger .kpi-value  { -webkit-text-fill-color: var(--error); }
+.kpi-warning .kpi-value { -webkit-text-fill-color: var(--tertiary-container); }
+.kpi-secondary .kpi-value { background: var(--gradient-secondary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+/* Gráficos */
+.dashboard-charts {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1rem;
+}
+
+.dashboard-chart-card {
+  min-height: 280px;
+}
+
+@media (max-width: 900px) {
+  .dashboard-charts { grid-template-columns: 1fr; }
+  .dashboard-kpis { grid-template-columns: repeat(2, 1fr); }
+}

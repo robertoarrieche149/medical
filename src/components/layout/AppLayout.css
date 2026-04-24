@@ -1,0 +1,38 @@
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+  background: var(--surface);
+}
+
+.app-main {
+  margin-left: var(--sidebar-width);
+  flex: 1;
+  min-height: 100vh;
+  background: var(--gradient-surface);
+  position: relative;
+}
+
+/* Sutil patrón de fondo para dar profundidad */
+.app-main::before {
+  content: '';
+  position: fixed;
+  top: -200px;
+  right: -200px;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(71, 241, 228, 0.04) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.app-content {
+  position: relative;
+  z-index: 1;
+  padding: 2rem;
+  max-width: 1400px;
+}
+
+@media (max-width: 768px) {
+  .app-main { margin-left: 0; }
+  .app-content { padding: 1rem; }
+}

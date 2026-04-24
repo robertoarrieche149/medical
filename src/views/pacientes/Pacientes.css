@@ -1,0 +1,147 @@
+/* =============================================
+   PACIENTES — Estilos compartidos
+   ============================================= */
+
+.pacientes-page {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Filtros */
+.pacientes-filters {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  padding: 1rem 1.25rem;
+}
+
+.filter-search {
+  position: relative;
+  flex: 1;
+}
+
+.filter-search-icon {
+  position: absolute;
+  left: 0.875rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--outline);
+  pointer-events: none;
+}
+
+.filter-search .form-input {
+  padding-left: 2.5rem;
+}
+
+.filter-select {
+  width: 200px;
+  flex-shrink: 0;
+}
+
+/* Tabla acciones */
+.acciones-row {
+  display: flex;
+  justify-content: center;
+  gap: 0.25rem;
+}
+
+.btn-icon-danger:hover {
+  color: var(--error);
+  background: rgba(255, 180, 171, 0.1);
+}
+
+/* Avatar de paciente en tabla */
+.paciente-nombre {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.paciente-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-full);
+  background: var(--gradient-secondary);
+  color: var(--on-secondary-container);
+  font-size: 0.7rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Estado vacío */
+.pacientes-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 3rem;
+  color: var(--on-surface-variant);
+}
+
+/* Paginación */
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1.25rem 0 0.25rem;
+  border-top: 1px solid rgba(59, 74, 72, 0.1);
+  margin-top: 0.5rem;
+}
+
+/* Modal tabs */
+.modal-tabs {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid rgba(59, 74, 72, 0.15);
+  margin: -0.25rem 0 1.5rem;
+}
+
+.modal-tab {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.625rem 1.25rem;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--on-surface-variant);
+  border-bottom: 2px solid transparent;
+  transition: all var(--transition-base);
+  margin-bottom: -1px;
+}
+
+.modal-tab:hover { color: var(--on-surface); }
+
+.modal-tab.active {
+  color: var(--primary);
+  border-bottom-color: var(--primary);
+}
+
+/* Grid de formulario en modal */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.125rem;
+}
+
+/* Footer de modal */
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  margin-top: 1.75rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(59, 74, 72, 0.1);
+}
+
+@media (max-width: 600px) {
+  .form-grid { grid-template-columns: 1fr; }
+  .pacientes-filters { flex-direction: column; }
+  .filter-select { width: 100%; }
+}

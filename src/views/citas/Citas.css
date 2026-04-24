@@ -1,0 +1,231 @@
+/* =============================================
+   AGENDA DE CITAS — Calendar UI
+   ============================================= */
+
+.citas-page {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.citas-layout {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 1rem;
+  align-items: start;
+}
+
+/* Navegación de semana */
+.calendar-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0 0 1.25rem;
+  border-bottom: 1px solid rgba(59, 74, 72, 0.1);
+  margin-bottom: 0;
+}
+
+/* Grid del calendario */
+.calendar-grid {
+  display: grid;
+  grid-template-columns: 52px repeat(6, 1fr);
+  overflow-x: auto;
+}
+
+/* Encabezado días */
+.calendar-time-gutter {
+  grid-column: 1;
+}
+
+.calendar-day-header {
+  padding: 0.75rem 0.25rem;
+  text-align: center;
+  border-bottom: 1px solid rgba(59, 74, 72, 0.1);
+}
+
+.calendar-day-header.hoy .calendar-day-name {
+  color: var(--primary);
+}
+
+.calendar-day-name {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--on-surface-variant);
+  text-transform: capitalize;
+  letter-spacing: 0.05em;
+}
+
+.calendar-day-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: var(--radius-full);
+  font-family: var(--font-headline);
+  font-size: 1rem;
+  font-weight: 700;
+  margin-top: 0.25rem;
+  color: var(--on-surface);
+}
+
+.calendar-day-num.hoy {
+  background: var(--gradient-primary);
+  color: var(--on-primary);
+}
+
+/* Etiquetas de hora */
+.calendar-time-label {
+  padding: 0.5rem 0.5rem 0.5rem 0;
+  font-size: 0.7rem;
+  color: var(--on-surface-variant);
+  text-align: right;
+  border-right: 1px solid rgba(59, 74, 72, 0.08);
+  height: 64px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+
+/* Slot de hora */
+.calendar-slot {
+  height: 64px;
+  border-bottom: 1px solid rgba(59, 74, 72, 0.06);
+  border-right: 1px solid rgba(59, 74, 72, 0.06);
+  padding: 2px 3px;
+  cursor: pointer;
+  transition: background var(--transition-fast);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.calendar-slot:hover {
+  background: rgba(71, 241, 228, 0.03);
+}
+
+/* Bloques de citas */
+.cita-block {
+  border-radius: 4px;
+  padding: 2px 6px;
+  cursor: pointer;
+  transition: filter var(--transition-fast);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.cita-block:hover { filter: brightness(1.15); }
+
+.cita-primera {
+  background: rgba(71, 241, 228, 0.2);
+  border-left: 3px solid var(--primary);
+}
+
+.cita-control {
+  background: rgba(182, 196, 255, 0.2);
+  border-left: 3px solid var(--secondary);
+}
+
+.cita-procedimiento {
+  background: rgba(255, 172, 76, 0.2);
+  border-left: 3px solid var(--tertiary-container);
+}
+
+.cita-block-hora {
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: var(--on-surface-variant);
+  line-height: 1;
+}
+
+.cita-block-nombre {
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--on-surface);
+  line-height: 1.2;
+}
+
+/* Leyenda */
+.calendar-legend {
+  display: flex;
+  gap: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(59, 74, 72, 0.1);
+  margin-top: 0.5rem;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: 0.75rem;
+  color: var(--on-surface-variant);
+}
+
+.legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: var(--radius-full);
+  flex-shrink: 0;
+}
+
+.legend-dot.cita-primera { background: var(--primary); }
+.legend-dot.cita-control { background: var(--secondary); }
+.legend-dot.cita-procedimiento { background: var(--tertiary-container); }
+
+/* Panel de detalle */
+.cita-detail-panel {
+  background: var(--surface-container);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  position: sticky;
+  top: 1rem;
+}
+
+.cita-detail-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 2rem 1rem;
+  color: var(--on-surface-variant);
+  text-align: center;
+}
+
+.cita-detail-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.cita-detail-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--on-surface-variant);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.cita-detail-value {
+  font-size: 0.9375rem;
+  color: var(--on-surface);
+  font-weight: 500;
+}
+
+/* Modal de cita — form */
+.cita-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+@media (max-width: 1100px) {
+  .citas-layout { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,96 @@
+/* ── PANEL DE CITAS (Asistente) ─────────────────────────── */
+.panel-citas-page { display: flex; flex-direction: column; gap: 1.5rem; }
+
+.semana-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+}
+.semana-dias {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0.25rem;
+  text-align: center;
+}
+.semana-dia {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.5rem 0.25rem;
+  border-radius: var(--radius-md);
+  position: relative;
+}
+.semana-dia-hoy {
+  background: rgba(71, 241, 228, 0.1);
+  border: 1px solid var(--primary);
+}
+.semana-dia-label { font-size: 0.7rem; color: var(--on-surface-variant); }
+.semana-dia-num { font-size: 1rem; font-weight: 700; color: var(--on-surface); }
+.semana-dia-badge {
+  position: absolute;
+  top: 2px; right: 2px;
+  background: var(--primary);
+  color: var(--on-primary);
+  font-size: 0.6rem;
+  font-weight: 700;
+  min-width: 16px; height: 16px;
+  border-radius: 99px;
+  display: flex; align-items: center; justify-content: center;
+}
+
+/* Grid de días */
+.citas-semana-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0.75rem;
+}
+.dia-columna { padding: 0.875rem; min-height: 200px; }
+.dia-columna-hoy { border-color: var(--primary); }
+.dia-columna-header {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--outline-variant);
+}
+.dia-columna-nombre { font-weight: 700; font-size: 0.8125rem; color: var(--on-surface); }
+.dia-columna-fecha { font-size: 0.7rem; color: var(--on-surface-variant); }
+.dia-sin-citas { text-align: center; padding: 1.5rem 0; color: var(--outline); }
+
+.dia-citas-lista { display: flex; flex-direction: column; gap: 0.5rem; }
+
+.cita-card-mini {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 0.5rem 0.625rem;
+  border-radius: var(--radius-sm);
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: all var(--transition-fast);
+  width: 100%;
+}
+.cita-primary  { background: rgba(71, 241, 228, 0.08); border-left: 2px solid var(--primary); }
+.cita-success  { background: rgba(102, 212, 119, 0.08); border-left: 2px solid #66d477; }
+.cita-neutral  { background: var(--surface-container-high); border-left: 2px solid var(--outline-variant); }
+.cita-error    { background: rgba(255, 180, 171, 0.08); border-left: 2px solid var(--error); }
+.cita-warning  { background: rgba(255, 213, 0, 0.08); border-left: 2px solid #ffd500; }
+.cita-card-mini:hover { transform: translateX(2px); }
+
+.cita-mini-hora, .cita-mini-paciente {
+  display: flex; align-items: center; gap: 4px;
+  font-size: 0.7rem; color: var(--on-surface-variant);
+}
+.cita-mini-tipo { font-size: 0.65rem; color: var(--outline); }
+
+@media (max-width: 1100px) {
+  .citas-semana-grid { grid-template-columns: repeat(3, 1fr); }
+  .semana-dias { grid-template-columns: repeat(6, 1fr); }
+}
+@media (max-width: 640px) {
+  .citas-semana-grid { grid-template-columns: 1fr 1fr; }
+}

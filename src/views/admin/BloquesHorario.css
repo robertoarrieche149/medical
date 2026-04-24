@@ -1,0 +1,62 @@
+/* ── BLOQUES HORARIO (Admin) ────────────────────────── */
+.bloques-page { display: flex; flex-direction: column; gap: 1.5rem; }
+
+.bloque-form-card { padding: 1.5rem; }
+.bloque-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr auto;
+  gap: 1rem;
+  align-items: end;
+}
+.bloque-form-actions {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  padding-bottom: 1px;
+}
+
+/* Grid por día */
+.bloques-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+.dia-bloque-card { padding: 1.25rem; }
+.dia-bloque-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.875rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--outline-variant);
+}
+.dia-bloque-nombre {
+  font-weight: 700;
+  font-size: 0.9375rem;
+  font-family: var(--font-headline);
+  color: var(--on-surface);
+}
+
+.bloques-lista { display: flex; flex-direction: column; gap: 0.5rem; }
+.bloque-item {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 0.5rem 0.625rem;
+  border-radius: var(--radius-sm);
+  background: var(--surface-container-high);
+  transition: all var(--transition-fast);
+}
+.bloque-inactivo { opacity: 0.45; }
+.bloque-horas { font-size: 0.8125rem; font-weight: 600; color: var(--on-surface); display: block; }
+.bloque-duracion { font-size: 0.7rem; color: var(--on-surface-variant); }
+
+@media (max-width: 900px) {
+  .bloques-grid { grid-template-columns: repeat(2, 1fr); }
+  .bloque-form { grid-template-columns: 1fr 1fr; }
+  .bloque-form-actions { grid-column: 1 / -1; justify-content: flex-end; }
+}
+@media (max-width: 600px) {
+  .bloques-grid { grid-template-columns: 1fr; }
+  .bloque-form { grid-template-columns: 1fr; }
+}
